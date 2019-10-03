@@ -11,19 +11,19 @@ contract TestStateless {
  // The id of the profile that will be used for testing
  uint expectedhumanId = 8;
 
- //The expected verifier of verified profile is this contract
+ //The expected verifier of the profile is this contract
  address expectedVerifier = address(this);
 
  // Testing the verify() function
  function testUserCanVerifyProfile() public {
-   uint returnedId = verification.verify(expectedhumanId);
+   uint returnedId = stateless.verify(expectedhumanId);
 
    Assert.equal(returnedId, expectedhumanId, "The verifier of the expected profile should match what is returned.");
  }
 
 // Testing retrieval of a single profile's verifier
 function testGetVerifierAddressByhumanId() public {
-  address verifier = verify.verifiers(expectedhumanId);
+  address verifier = stateless.verifiers(expectedhumanId);
 
   Assert.equal(verifier, expectedVerifier, "Verifier of the expected profile should be this contract");
 }
@@ -31,7 +31,7 @@ function testGetVerifierAddressByhumanId() public {
 // Testing retrieval of all profile verifiers
 function testGetVerifierAddressByhumanIdInArray() public {
   // Store verifiers in memory rather than contract's storage
-  address[16] memory verifiers = verify.getVerifiers();
+  address[16] memory verifiers = stateless.getVerifiers();
 
   Assert.equal(verifiers[expectedhumanId], expectedVerifier, "Verifier of the expected profile should be this contract");
 }
