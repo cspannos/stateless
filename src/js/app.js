@@ -3,18 +3,18 @@ App = {
   contracts: {},
 
   init: async function() {
-    // Load pets.
-    $.getJSON('../pets.json', function(data) {
+    // Load profiles.
+    $.getJSON('../profiles.json', function(data) {
       var profilesRow = $('#profilesRow');
       var profileTemplate = $('#profileTemplate');
 
       for (i = 0; i < data.length; i ++) {
         profileTemplate.find('.panel-title').text(data[i].name);
         profileTemplate.find('img').attr('src', data[i].picture);
-        profileTemplate.find('.pet-breed').text(data[i].breed);
-        profileTemplate.find('.pet-age').text(data[i].age);
-        profileTemplate.find('.pet-location').text(data[i].location);
-        profileTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+        profileTemplate.find('.human-from').text(data[i].breed);
+        profileTemplate.find('.human-age').text(data[i].age);
+        profileTemplate.find('.human-location').text(data[i].location);
+        profileTemplate.find('.btn-verify').attr('data-id', data[i].id);
 
         profilesRow.append(profileTemplate.html());
       }
@@ -50,35 +50,35 @@ App = {
   },
 
   initContract: function() {
-    $.getJSON('Adoption.json', function(data) {
+    $.getJSON('Stateless.json', function(data) {
       // Get the necessary contract artifact file and instantiate it with truffle-contract
-      var AdoptionArtifact = data;
-      App.contracts.Adoption = TruffleContract(AdoptionArtifact);
+      var StatelessArtifact = data;
+      App.contracts.Stateless = TruffleContract(StatelessArtifact);
 
       // Set the provider for our contract
-      App.contracts.Adoption.setProvider(App.web3Provider);
+      App.contracts.Stateless.setProvider(App.web3Provider);
 
       // Use our contract to retrieve and mark the adopted pets
-      return App.markAdopted();
+      return App.markVerified();
     });
 
     return App.bindEvents();
   },
 
   bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
+    $(document).on('click', '.btn-verify', App.handleVerify);
   },
 
-  markAdopted: function(adopters, account) {
+  markVerified: function(verifiers, account) {
     var adoptionInstance;
 
-    App.contracts.Adoption.deployed().then(function(instance) {
+    App.contracts.Stateless.deployed().then(function(instance) {
       adoptionInstance = instance;
 
       return adoptionInstance.getVerifiers.call();
-    }).then(function(adopters) {
-      for (i = 0; i < adopters.length; i++) {
-        if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
+    }).then(function(verifiers) {
+      for (i = 0; i < verifiers.length; i++) {
+        if (verifiers[i] !== '0x0000000000000000000000000000000000000000') {
           $('.panel-profile').eq(i).find('button').text('Success').attr('disabled', true);
         }
       }
@@ -101,13 +101,13 @@ App = {
 
       var account = accounts[0];
 
-      App.contracts.Adoption.deployed().then(function(instance) {
+      App.contracts.Stateless.deployed().then(function(instance) {
         adoptionInstance = instance;
 
         // Execute adopt as a transaction by sending account
         return adoptionInstance.adopt(humanId, {from: account});
       }).then(function(result) {
-        return App.markAdopted();
+        return App.markVerified();
       }).catch(function(err) {
         console.log(err.message);
       });

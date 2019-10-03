@@ -1,6 +1,5 @@
 pragma solidity ^0.5.0;
 
-// Change name to Stateless
 contract Stateless {
 
     address[16] public verifiers;
@@ -13,7 +12,7 @@ function verify(uint humanId) public returns (uint) {
   return humanId;
 }
 
-// Retrieving the adopters
+// Retrieving the verifiers
 function getVerifiers() public view returns (address[16] memory) {
   return verifiers;
 }
