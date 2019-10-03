@@ -75,7 +75,7 @@ App = {
     App.contracts.Adoption.deployed().then(function(instance) {
       adoptionInstance = instance;
 
-      return adoptionInstance.getAdopters.call();
+      return adoptionInstance.getVerifiers.call();
     }).then(function(adopters) {
       for (i = 0; i < adopters.length; i++) {
         if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
@@ -90,7 +90,7 @@ App = {
   handleAdopt: function(event) {
     event.preventDefault();
 
-    var petId = parseInt($(event.target).data('id'));
+    var humanId = parseInt($(event.target).data('id'));
 
     var adoptionInstance;
 
@@ -105,7 +105,7 @@ App = {
         adoptionInstance = instance;
 
         // Execute adopt as a transaction by sending account
-        return adoptionInstance.adopt(petId, {from: account});
+        return adoptionInstance.adopt(humanId, {from: account});
       }).then(function(result) {
         return App.markAdopted();
       }).catch(function(err) {

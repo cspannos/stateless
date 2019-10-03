@@ -9,31 +9,31 @@ contract TestAdoption {
  Adoption adoption = Adoption(DeployedAddresses.Adoption());
 
  // The id of the pet that will be used for testing
- uint expectedPetId = 8;
+ uint expectedhumanId = 8;
 
  //The expected owner of adopted pet is this contract
  address expectedAdopter = address(this);
 
  // Testing the adopt() function
  function testUserCanAdoptPet() public {
-   uint returnedId = adoption.adopt(expectedPetId);
+   uint returnedId = adoption.adopt(expectedhumanId);
 
-   Assert.equal(returnedId, expectedPetId, "Adoption of the expected pet should match what is returned.");
+   Assert.equal(returnedId, expectedhumanId, "Adoption of the expected pet should match what is returned.");
  }
 
 // Testing retrieval of a single pet's owner
-function testGetAdopterAddressByPetId() public {
-  address adopter = adoption.adopters(expectedPetId);
+function testGetAdopterAddressByhumanId() public {
+  address adopter = adoption.adopters(expectedhumanId);
 
   Assert.equal(adopter, expectedAdopter, "Owner of the expected pet should be this contract");
 }
 
 // Testing retrieval of all pet owners
-function testGetAdopterAddressByPetIdInArray() public {
+function testGetAdopterAddressByhumanIdInArray() public {
   // Store adopters in memory rather than contract's storage
-  address[16] memory adopters = adoption.getAdopters();
+  address[16] memory adopters = adoption.getVerifiers();
 
-  Assert.equal(adopters[expectedPetId], expectedAdopter, "Owner of the expected pet should be this contract");
+  Assert.equal(adopters[expectedhumanId], expectedAdopter, "Owner of the expected pet should be this contract");
 }
 
 }
