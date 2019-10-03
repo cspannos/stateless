@@ -33,7 +33,7 @@ function testGetVerifierAddressByhumanIdInArray() public {
   // Store verifiers in memory rather than contract's storage
   address[16] memory verifiers = verify.getVerifiers();
 
-  Assert.equal(verifiers[expectedhumanId], expectedVerifer, "Verifier of the expected profile should be this contract");
+  Assert.equal(verifiers[expectedhumanId], expectedVerifier, "Verifier of the expected profile should be this contract");
 }
 
 }
