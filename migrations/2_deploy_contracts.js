@@ -1,5 +1,5 @@
-var Adoption = artifacts.require("Adoption");
+var Stateless = artifacts.require("Stateless");
 
 module.exports = function(deployer) {
-  deployer.deploy(Adoption);
+  deployer.deploy(Stateless);
 };

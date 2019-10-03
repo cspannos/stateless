@@ -5,18 +5,18 @@ App = {
   init: async function() {
     // Load pets.
     $.getJSON('../pets.json', function(data) {
-      var petsRow = $('#petsRow');
-      var petTemplate = $('#petTemplate');
+      var profilesRow = $('#profilesRow');
+      var profileTemplate = $('#profileTemplate');
 
       for (i = 0; i < data.length; i ++) {
-        petTemplate.find('.panel-title').text(data[i].name);
-        petTemplate.find('img').attr('src', data[i].picture);
-        petTemplate.find('.pet-breed').text(data[i].breed);
-        petTemplate.find('.pet-age').text(data[i].age);
-        petTemplate.find('.pet-location').text(data[i].location);
-        petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+        profileTemplate.find('.panel-title').text(data[i].name);
+        profileTemplate.find('img').attr('src', data[i].picture);
+        profileTemplate.find('.pet-breed').text(data[i].breed);
+        profileTemplate.find('.pet-age').text(data[i].age);
+        profileTemplate.find('.pet-location').text(data[i].location);
+        profileTemplate.find('.btn-adopt').attr('data-id', data[i].id);
 
-        petsRow.append(petTemplate.html());
+        profilesRow.append(profileTemplate.html());
       }
     });
 
