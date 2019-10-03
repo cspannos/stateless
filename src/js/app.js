@@ -58,7 +58,7 @@ App = {
       // Set the provider for our contract
       App.contracts.Stateless.setProvider(App.web3Provider);
 
-      // Use our contract to retrieve and mark the adopted pets
+      // Use our contract to retrieve and mark the verified profiles
       return App.markVerified();
     });
 
@@ -70,12 +70,12 @@ App = {
   },
 
   markVerified: function(verifiers, account) {
-    var adoptionInstance;
+    var verificationInstance;
 
     App.contracts.Stateless.deployed().then(function(instance) {
-      adoptionInstance = instance;
+      verificationInstance = instance;
 
-      return adoptionInstance.getVerifiers.call();
+      return verificationInstance.getVerifiers.call();
     }).then(function(verifiers) {
       for (i = 0; i < verifiers.length; i++) {
         if (verifiers[i] !== '0x0000000000000000000000000000000000000000') {
@@ -87,12 +87,12 @@ App = {
     });
   },
 
-  handleAdopt: function(event) {
+  handleVerify: function(event) {
     event.preventDefault();
 
     var humanId = parseInt($(event.target).data('id'));
 
-    var adoptionInstance;
+    var verificationInstance;
 
     web3.eth.getAccounts(function(error, accounts) {
       if (error) {
@@ -102,10 +102,10 @@ App = {
       var account = accounts[0];
 
       App.contracts.Stateless.deployed().then(function(instance) {
-        adoptionInstance = instance;
+        verificationInstance = instance;
 
-        // Execute adopt as a transaction by sending account
-        return adoptionInstance.adopt(humanId, {from: account});
+        // Execute verify as a transaction by sending account
+        return verificationInstance.verify(humanId, {from: account});
       }).then(function(result) {
         return App.markVerified();
       }).catch(function(err) {
