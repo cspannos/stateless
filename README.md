@@ -8,15 +8,15 @@ Statelessness is a problem that borders and nation states perpetuate.
 
 This blockchain based "Stateless" social media platform aims to help address the problems that stateless people face. It does so by offering the possibility to:
 
-  - acquire individual and collective digital identity
-  - build networks and community
-  - send remittances
-  - exchange socially valuable services
-  - make and vote on proposals
-  - access support
-  - act immutably
-  - engage directly with others without third parties or intermediaries
-  - fight corruption and abuse of human rights
+  * acquire individual and collective digital identity
+  * build networks and community
+  * send remittances
+  * exchange socially valuable services
+  * make and vote on proposals
+  * access support
+  * act immutably
+  * engage directly with others without third parties or intermediaries
+  * fight corruption and abuse of human rights
 
 Most of all, Stateless aims to support the dignity and lives of all people irrespective of states and borders.
 
