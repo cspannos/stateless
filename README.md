@@ -24,7 +24,7 @@ This is a proof-of-concept only. The core element of the Stateless platform enab
 
 1. clone this repository
 2. cd into the root directory
-3. run: npm run deprives
+3. run: npm run dev
 
 Note: You should have MetaMask installed to interact with the contracts.
 
