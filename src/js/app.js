@@ -11,7 +11,7 @@ App = {
       for (i = 0; i < data.length; i ++) {
         profileTemplate.find('.panel-title').text(data[i].name);
         profileTemplate.find('img').attr('src', data[i].picture);
-        profileTemplate.find('.human-from').text(data[i].breed);
+        profileTemplate.find('.human-from').text(data[i].from);
         profileTemplate.find('.human-age').text(data[i].age);
         profileTemplate.find('.human-location').text(data[i].location);
         profileTemplate.find('.btn-verify').attr('data-id', data[i].id);
