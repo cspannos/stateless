@@ -2,7 +2,7 @@
 
 “A person who is not considered as a national by any State under the operation of its law” – The international legal definition of a stateless person
 
-There are an [estimated 12 million stateless peoples globally](https://news.un.org/en/story/2018/11/1025561), according to the UN refugee agency (UNHCR). Modern examples of statelessness include the Rohingya, Palestinaians, Kurds, and more. War, famine, climate change, occupation, and ethnic cleansing are just some of the causes of statelessness. The condition of statelessness [deprives millions of people of their most basic rights](https://www.reuters.com/article/us-global-statelessness-conference-factb/factbox-where-are-the-worlds-stateless-people-idUSKCN1TR00J), such as education, healthcare, housing, and jobs.
+There are an [estimated 12 million stateless peoples globally](https://news.un.org/en/story/2018/11/1025561), according to the UN refugee agency (UNHCR). Modern examples of statelessness include the Rohingya, Palestinians, Kurds, and more. War, famine, climate change, occupation, and ethnic cleansing are just some of the causes of statelessness. The condition of statelessness [deprives millions of people of their most basic rights](https://www.reuters.com/article/us-global-statelessness-conference-factb/factbox-where-are-the-worlds-stateless-people-idUSKCN1TR00J), such as education, healthcare, housing, and jobs.
 
 Statelessness is a problem that borders and nation states perpetuate.
 
