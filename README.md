@@ -12,7 +12,7 @@ This blockchain based "Stateless" social media platform aims to help address the
 * build networks and community
 * send remittances
 * exchange socially valuable services
-* make and vote on proposals
+* make and vote on proposals for self-governance
 * access support
 * act immutably
 * engage directly with others without third parties or intermediaries
